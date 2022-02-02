@@ -1,0 +1,147 @@
+.container--outer {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+}
+
+.container--inner:not(:last-child) {
+  margin-right: 6em;
+}
+
+.instructions {
+  max-width: 500px;
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+}
+.diagram h2 {
+  margin-bottom: 2em;
+}
+.diagram ul {
+  list-style-type: none;
+  padding: 0;
+}
+.diagram li {
+  margin: 1em;
+  padding: 0;
+}
+
+.nucleotide--draggable {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.nucleotide--draggable:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.dna, .rna {
+  position: relative;
+}
+.dna:before, .rna:before {
+  background: #bdc3c7;
+  border-top: 2px solid #949da4;
+  border-left: 2px solid #949da4;
+  content: " ";
+  height: 100%;
+  left: 0.5em;
+  position: absolute;
+  transform: rotate(-25deg) skew(-25deg);
+  transition: all 250ms;
+  z-index: 0;
+  width: 1em;
+}
+.dna li, .rna li {
+  line-height: 2em;
+  margin: 0 1em;
+  padding: 0.5em 0;
+  position: relative;
+  text-align: center;
+  z-index: 200;
+}
+.dna li div, .rna li div {
+  height: 2em;
+  width: 2em;
+  z-index: 100;
+}
+
+.a {
+  background: #1abc9c;
+}
+
+.t {
+  background: #2980b9;
+}
+
+.u {
+  background: #f1c40f;
+}
+
+.c {
+  background: #e74c3c;
+}
+
+.g {
+  background: #9b59b6;
+}
+
+.rna:before {
+  background: #7f8c8d;
+  border-top: 2px solid #5a6465;
+  border-left: 2px solid #5a6465;
+}
+
+.amino-acid {
+  background: radial-gradient(circle at 2em 2em, pink, #c00022);
+  border-radius: 8em;
+  height: 8em;
+  line-height: 8em;
+  margin-bottom: 0.5em;
+  position: relative;
+  text-align: center;
+  width: 8em;
+}
+.amino-acid:before {
+  border: 1px solid black;
+  content: "";
+  left: -2em;
+  height: 0px;
+  position: absolute;
+  top: 50%;
+  width: 1em;
+}
+.amino-acid:after {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  content: "";
+  height: 8em;
+  left: -3em;
+  position: absolute;
+  width: 1em;
+}
+
+.amino-acid-list {
+  margin-top: 3.5rem;
+}
+
+.active-strand:before {
+  background: #78848c;
+}
+
+.placeholder {
+  height: 2em;
+  position: relative;
+}
+.placeholder:before {
+  background: #fff078;
+  content: "";
+  height: 2em;
+  left: 0;
+  position: absolute;
+  top: 0.5em;
+  width: 2em;
+}
