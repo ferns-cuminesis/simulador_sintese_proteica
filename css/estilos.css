@@ -1,0 +1,157 @@
+
+
+$dna-base: #bdc3c7;
+$rna-base: #7f8c8d;
+$a: #1abc9c;
+$t: #2980b9;
+$u: #f1c40f;
+$g: #9b59b6;
+$c: #e74c3c;
+$time: 250ms;
+
+.container--outer {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+}
+
+.container--inner:not(:last-child) {
+  margin-right: 6em;
+}
+
+.instructions {
+  max-width: 500px;
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+  
+  h2 {
+    margin-bottom: 2em;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 1em;
+    padding: 0;
+  }
+}
+
+.nucleotide--draggable {
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.dna, .rna {
+  position: relative;
+  
+  &:before {
+    background: $dna-base;
+    border-top: 2px solid darken($dna-base, 15%);
+    border-left: 2px solid darken($dna-base, 15%);
+    content: ' ';
+    height: 100%;
+    left: .5em;
+    position: absolute;
+    transform: rotate(-25deg) skew(-25deg);
+    transition: all $time;
+    z-index: 0;
+    width: 1em;
+  }  
+  
+  li {
+    line-height: 2em;
+    margin: 0 1em;
+    padding: .5em 0;
+    position: relative;
+    text-align: center;
+    z-index: 200;
+    
+    div {
+      height: 2em;
+      width: 2em;
+      z-index: 100;
+    }
+  }
+  
+}
+
+.a { background: $a; }
+.t { background: $t; }
+.u { background: $u; }
+.c { background: $c; }
+.g { background: $g; }
+
+.rna {
+  &:before {
+    background: $rna-base;
+    border-top: 2px solid darken($rna-base, 15%);
+    border-left: 2px solid darken($rna-base, 15%);
+  }
+}
+
+.amino-acid {
+  background: radial-gradient(circle at 2em 2em, pink, darken(pink, 50%));
+  border-radius: 8em;
+  height: 8em;
+  line-height: 8em;
+  margin-bottom: .5em;
+  position: relative;
+  text-align: center;
+  width: 8em;
+  
+  &:before {
+    border: 1px solid black;
+    content: '';
+    left: -2em;
+    height: 0px;
+    position: absolute;
+    top: 50%;
+    width: 1em;
+  }
+  
+  &:after {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    content: '';
+    height: 8em;
+    left: -3em;
+    position: absolute;
+    width: 1em;
+  }
+}
+
+.amino-acid-list {
+  margin-top: 3.5rem; 
+}
+
+.active-strand {
+  &:before {
+    background: darken($dna-base, 25%);
+  }
+}
+
+.placeholder {
+  height: 2em;
+  position: relative;
+  
+  &:before {
+    background: rgb(255,240,120);
+    content: '';
+    height: 2em;
+    left: 0;
+    position: absolute;
+    top: .5em;
+    width: 2em;
+  }
+}
